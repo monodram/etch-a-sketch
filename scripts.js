@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector('.grid-container');
 
-let cellCount = 16;
+let cellCount = 8 * 8; // cell count aka grid size
 
 function setGridSize(cellCount) { // creates a grid with choosen cell count
     for (let i = 0; i < cellCount; i++) {
@@ -9,6 +9,6 @@ function setGridSize(cellCount) { // creates a grid with choosen cell count
         gridContainer.appendChild(createCells);
     };
     
-
-
 }
+
+setGridSize(cellCount);
