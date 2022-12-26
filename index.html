@@ -15,13 +15,14 @@
     <div class="panel">
         <div class="size-slider">
             <label for="size">Choose grid size</label>
-            <input type="range" id="size" name="size" list="steps" min="16" max="64" step="16">
+            <input type="range" id="sizeSlider" class="slider" list="steps" min="16" max="64" step="16">
             <datalist id="steps">
                 <option value="16" label="16x16"></option>
                 <option value="32" label="32x32"></option>
                 <option value="48" label="48x48"></option>
                 <option value="64" label="64x64"></option>
               </datalist>
+              <p>Size: <span id="size-value"></span></p>
         </div>
     </div>
 

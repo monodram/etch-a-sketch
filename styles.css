@@ -1,8 +1,8 @@
 .grid-container {
     padding: 10px;
     display: grid;
-    width: 512px;
-    height: 512px;
+    width: 960px;
+    height: 960px;
     grid-template-columns: repeat(64, minmax(0, 1fr));
 
 }
