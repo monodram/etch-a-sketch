@@ -1,19 +1,21 @@
 const gridContainer = document.querySelector('.grid-container');
 
 
-let cellCount = 64 * 64; // cell count aka grid size X by X
+let cellCount = 48 * 48; // cell count aka grid size X by X
 
-// slider
 var slider = document.getElementById("sizeSlider");
 var output = document.getElementById("size-value");
+
 output.innerHTML = slider.value; // Display the default slider value
 
-// Update the current slider value
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
+slider.oninput = function() { // Updates slider value
+    output.innerHTML = this.value;
+    cellCount = this.value * this.value; // Updates cell count
+    clearGrid(); // Deletes all cells after changing size with slider
+    createGrid();  // Creates grid with new value from slider
+};
 
-function setGridSize() { // creates a grid with selected cell count
+function createGrid() { // creates a grid with selected cell count
     for (let i = 0; i < cellCount; i++) {
         const createCells = document.createElement('div')
         createCells.classList.add('cell');
@@ -21,18 +23,21 @@ function setGridSize() { // creates a grid with selected cell count
     };
     
 };
-
-setGridSize();
+createGrid();
 
 const cells = document.querySelectorAll('.cell');
 
- // changes the color of a cell when clicked
+ // Paints the cells with color on hover
  cells.forEach(cell => {
     cell.addEventListener('mouseover', function() {
     cell.classList.add('cell-painted');
     
  });
-
 });
 
+function clearGrid() { // Deletes all generates cells on board - it is used only after changing grid size with slider
+    cells.forEach(cell => {
+        cell.remove();
+    })
+};
 
