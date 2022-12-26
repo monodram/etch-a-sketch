@@ -14,13 +14,29 @@
 }
 
 .grid-container {
-    padding: 10px;
     display: grid;
+    padding: 10px;
     width: 720px;
     height: 720px;
-    grid-template-columns: repeat(48, minmax(0, 1fr));
 
 }
+
+.grid16 {
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+}
+
+.grid32 {
+    grid-template-columns: repeat(32, minmax(0, 1fr));
+}
+
+.grid48 {
+    grid-template-columns: repeat(48, minmax(0, 1fr));
+}
+
+.grid64 {
+    grid-template-columns: repeat(64, minmax(0, 1fr));
+}
+
 
 .cell {
     border: solid 1px;
