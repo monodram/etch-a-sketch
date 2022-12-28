@@ -1,20 +1,16 @@
 const gridContainer = document.querySelector('.grid-container');
 
+let cellCount = 2304; // cell count aka grid size
 
-let cellCount = 2304; // cell count aka grid size X by X
-
-var slider = document.getElementById("sizeSlider");
-var output = document.getElementById("size-value");
+let slider = document.getElementById("sizeSlider");
+let output = document.getElementById("size-value");
 
 output.innerHTML = slider.value; // Display the default slider value
 
 slider.oninput = function() { // Updates slider value
     output.innerHTML = this.value;
     cellCount = this.value * this.value; // Updates cell count
-    clearGrid(); // Deletes all cells if slider is moved
-    gridColumnSize();
-    createGrid();  // Creates grid with new value from slider
-
+    generateNewGrid();
 };
 
 function createGrid() { // creates a grid with selected cell count
@@ -26,7 +22,7 @@ function createGrid() { // creates a grid with selected cell count
 
 };
 
-function gridColumnSize() {
+function gridColumnSize() { // Changes CSS class for grid-container so that cells in grid are even size
     if (cellCount == 256) {
        gridContainer.classList.remove('grid32', 'grid48', 'grid64');
        gridContainer.classList.add('grid16');
@@ -44,25 +40,38 @@ function gridColumnSize() {
        gridContainer.classList.add('grid64');
     };
 };
+gridColumnSize();   // executes both functions 
+createGrid();   // to generate very first grid
 
-gridColumnSize();
-createGrid();
+function addSelectorToCell() { // Class selector for generated cells
+    let cells = Array.from(document.getElementsByClassName('cell'));
+    return cells;
+};
+let cellSelector = addSelectorToCell();
 
-const cells = document.querySelectorAll('.cell');
 
- cells.forEach(cell => {  // Paints the cells with black on hover
-    cell.addEventListener('mouseover', function() {
-    cell.classList.add('cell-painted');
- });
+
+function paint() {
+    cellSelector.forEach(cell => {  // Paints the cells with black on hover
+        cell.addEventListener('mouseover', function() {
+        cell.classList.add('cell-painted');
+        console.log('painted');
+    });
 });
+};
+paint();
 
-function clearGrid() { // Deletes all generates cells on board - it is used only after changing grid size with slider
-    cells.forEach(cell => {
+function clearGrid() { // Deletes all generates cells on board
+    cellSelector.forEach(cell => {
         cell.remove();
-
     })
-    console.log('removed')
 };
 
 
-
+function generateNewGrid() { 
+    clearGrid();
+    createGrid();
+    gridColumnSize();
+    cellSelector = addSelectorToCell();
+    paint();
+}
