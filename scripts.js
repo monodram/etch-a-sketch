@@ -49,8 +49,6 @@ function addSelectorToCell() { // Class selector for generated cells
 };
 let cellSelector = addSelectorToCell();
 
-
-
 function paint() {
     cellSelector.forEach(cell => {  // Paints the cells with black on hover
         cell.addEventListener('mouseover', function() {
