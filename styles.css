@@ -3,6 +3,7 @@
 
 .board {
     font-family: 'Poppins', sans-serif;
+    color: #8d99ae;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +16,14 @@
 .panel {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 600px;
-    width: 30vh;
-    background-color: #cccccc;
+    padding: 0 50px;
+    width: 20vh;
+
 }
 
 .buttons {
-    padding: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,13 +34,41 @@
     text-align: center;
 }
 
+button {
+    background-color: #8d99ae;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    
+}
+
 .size-slider {
+
     display: flex;
     flex-direction: column;
     margin:30px 0 30px;
     gap: 15px;
-    padding: 3vh;
     text-align: center;
+}
+
+
+.slider {
+    accent-color: #8d99ae;
 }
 
 .grid-container {
