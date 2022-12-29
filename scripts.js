@@ -73,3 +73,4 @@ function generateNewGrid() {
     cellSelector = addSelectorToCell();
     paint();
 }
+
