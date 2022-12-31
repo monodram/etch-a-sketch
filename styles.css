@@ -3,7 +3,7 @@
 
 .board {
     font-family: 'Poppins', sans-serif;
-    color: #8d99ae;
+    color: #2a9d8f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
 }
 
 button {
-    background-color: #8d99ae;
+    background-color: #2a9d8f;
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
@@ -53,8 +53,10 @@ button {
     position: relative;
     text-align: center;
     text-decoration: none;
+}
 
-    
+button:hover {
+    background-color: #32b9aa;
 }
 
 .size-slider {
@@ -68,7 +70,7 @@ button {
 
 
 .slider {
-    accent-color: #8d99ae;
+    accent-color: #2a9d8f;
 }
 
 .grid-container {
@@ -98,9 +100,5 @@ button {
 .cell {
     border: solid 1px;
     border-color: rgba(236, 236, 236, 0.658);
-}
-
-.cell-painted {
-    background-color: black;
 }
 
