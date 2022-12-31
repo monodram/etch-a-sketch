@@ -74,6 +74,7 @@ button:hover {
 }
 
 .grid-container {
+    border: solid 3px;
     display: grid;
     width: 600px;
     height: 600px;
@@ -99,6 +100,6 @@ button:hover {
 
 .cell {
     border: solid 1px;
-    border-color: rgba(236, 236, 236, 0.658);
+    border-color: #ecececa8;
 }
 
