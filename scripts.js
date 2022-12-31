@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector('.grid-container');
 
-let cellCount = 2304; // cell count aka grid size
+let cellCount = 2304; // Cell count aka grid size
 
 let slider = document.getElementById("sizeSlider");
 let output = document.getElementById("size-value");
@@ -13,7 +13,7 @@ slider.oninput = function() { // Updates slider value
     generateNewGrid();
 };
 
-function createGrid() { // creates a grid with selected cell count
+function createGrid() { // Creates a grid with selected cell count
     for (let i = 0; i < cellCount; i++) {
         const createCells = document.createElement('div')
         createCells.classList.add('cell');
@@ -49,13 +49,30 @@ function addSelectorToCell() { // Class selector for generated cells
 };
 let cellSelector = addSelectorToCell();
 
+let color;
+
 function paint() {
-    cellSelector.forEach(cell => {  // Paints the cells with black on hover
-        cell.addEventListener('mouseover', function() {
-        cell.classList.add('cell-painted');
-        console.log('painted');
+        if (color == 'black') {
+        cellSelector.forEach(cell => {  // Paints the cells with black on hover
+            cell.addEventListener('mouseover', function() {
+            cell.style.backgroundColor = 'black';
+            console.log('painted');
+        });
     });
-});
+    } else if (color == 'random') {
+        cellSelector.forEach(cell => {  // Paints the cells with random color on hover
+            cell.addEventListener('mouseover', function() {
+                const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']; 
+                let hex = '#';
+            
+                for (let i = 0; i < 6; i++) {
+                    const index = Math.floor(Math.random() * hexValues.length)
+                    hex += hexValues[index];
+                }
+                cell.style.backgroundColor = hex;
+            });
+    });
+    };
 };
 paint();
 
@@ -65,7 +82,6 @@ function clearGrid() { // Deletes all generates cells on board
     })
 };
 
-
 function generateNewGrid() { 
     clearGrid();
     createGrid();
@@ -73,4 +89,20 @@ function generateNewGrid() {
     cellSelector = addSelectorToCell();
     paint();
 }
+
+// Buttons \/
+
+const blackColorButton = document.getElementById('black-color-button');
+const randomColorButton = document.getElementById('random-color-button');
+
+blackColorButton.addEventListener('click', () => {
+    color = 'black';
+    paint();
+});
+
+randomColorButton.addEventListener('click', () => {
+    color = 'random';
+    paint();
+});
+
 
