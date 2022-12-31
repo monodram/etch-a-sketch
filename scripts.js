@@ -105,4 +105,14 @@ randomColorButton.addEventListener('click', () => {
     paint();
 });
 
+const clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', function() {
+    cellSelector.forEach(cell => {
+        cell.style.backgroundColor = '';
+    });
+});
 
+const hideButton = document.getElementById('hide');
+hideButton.addEventListener('click', function() {
+
+});
