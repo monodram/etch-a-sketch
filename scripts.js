@@ -56,7 +56,6 @@ function paint() {
         cellSelector.forEach(cell => {  // Paints the cells with black on hover
             cell.addEventListener('mouseover', function() {
             cell.style.backgroundColor = 'black';
-            console.log('painted');
         });
     });
     } else if (color == 'random') {
@@ -105,6 +104,18 @@ randomColorButton.addEventListener('click', () => {
     paint();
 });
 
+const eraser = document.getElementById('eraser');
+
+eraser.addEventListener('click', function() { // Clears cells on hover aka eraser
+    cellSelector.forEach(cell => { 
+        cell.addEventListener('mouseover', function() {
+        cell.style.backgroundColor = '';
+    });
+});
+})
+
+
+
 const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', function() { // Clears the board from painted cells
     cellSelector.forEach(cell => {
@@ -113,12 +124,12 @@ clearButton.addEventListener('click', function() { // Clears the board from pain
 });
 
 const hideButton = document.getElementById('hide');
-
 let hideButtonClicked = 0;
-hideButton.addEventListener('click', function() {
+
+hideButton.addEventListener('click', function() { // Hides the grid
     hideButtonClicked++;
 
-    cellSelector.forEach(cell => {  // Paints the cells with black on hover
+    cellSelector.forEach(cell => { 
         if (hideButtonClicked % 2 == 0) {
             cell.classList.remove('cell-borderless');
             cell.classList.add('cell');
