@@ -113,8 +113,20 @@ clearButton.addEventListener('click', function() { // Clears the board from pain
 });
 
 const hideButton = document.getElementById('hide');
+
+let hideButtonClicked = 0;
 hideButton.addEventListener('click', function() {
-    cellSelector.forEach(cell => {
-        cell.style.border = '0px';
-    });
+    hideButtonClicked++;
+
+    cellSelector.forEach(cell => {  // Paints the cells with black on hover
+        if (hideButtonClicked % 2 == 0) {
+            cell.classList.remove('cell-borderless');
+            cell.classList.add('cell');
+
+        } else {
+            cell.classList.remove('cell');
+            cell.classList.add('cell-borderless');
+        };
+})
 });
+
