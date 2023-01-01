@@ -103,3 +103,7 @@ button:hover {
     border-color: #ecececa8;
 }
 
+.cell-borderless {
+    border: 0px;
+}
+
