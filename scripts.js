@@ -106,7 +106,7 @@ randomColorButton.addEventListener('click', () => {
 });
 
 const clearButton = document.getElementById('clear');
-clearButton.addEventListener('click', function() {
+clearButton.addEventListener('click', function() { // Clears the board from painted cells
     cellSelector.forEach(cell => {
         cell.style.backgroundColor = '';
     });
@@ -114,5 +114,7 @@ clearButton.addEventListener('click', function() {
 
 const hideButton = document.getElementById('hide');
 hideButton.addEventListener('click', function() {
-
+    cellSelector.forEach(cell => {
+        cell.style.border = '0px';
+    });
 });
